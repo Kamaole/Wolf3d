@@ -29,6 +29,12 @@ typedef	struct	s_line
 	t_point		*end;
 }				t_line;
 
+typedef struct	s_vect
+{
+	double 		x;
+	double		y;
+}				t_vect;
+
 typedef struct	s_wolf
 {
 	int			x;
