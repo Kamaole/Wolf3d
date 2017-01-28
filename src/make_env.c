@@ -26,5 +26,6 @@ t_env	*make_env(int x, int y)
 	result->half_width = x / 2;
 	result->half_height = y / 2;
 	result->wolf = make_wolf();
+	result->textures = make_textures();
 	return (result);
 }

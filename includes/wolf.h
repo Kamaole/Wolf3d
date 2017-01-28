@@ -81,6 +81,7 @@ typedef	struct	s_env
 	int			width;
 	int			half_height;
 	int			half_width;
+	int			**textures;
 }				t_env;
 
 typedef	struct	s_linevars
@@ -104,6 +105,7 @@ int				line_len(int x0, int y0, int x1, int y1);
 t_linevars		*get_linevars(t_line *line);
 void			put_line(t_img *img_data, t_line *line, int color);
 void	pixel_to_img(t_img *img_data, int x, int y, int color);
+int		**make_textures(void);
 t_wolf *make_wolf(void);
 
 #endif
