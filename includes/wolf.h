@@ -142,5 +142,12 @@ void 	draw_line(t_env *env);
 void 	draw_img(t_env *env);
 void 	set_speeds(t_env *env);
 void 	rot_fvect(t_fvect *vect, double theta);
+void 	line_calc(t_env *env);
+void 	draw_line(t_env *env);
+void 	texture_util(int **textures, int i, int j);
+int		**make_textures(void);
+void 	dda_util(t_env *env);
+void 	dda(t_env *env);
+
 
 #endif
