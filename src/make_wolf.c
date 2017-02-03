@@ -14,6 +14,9 @@ t_wolf *make_wolf(void)
 	result->ray_dir = make_fvect(0, 0);
 	result->map_loc = make_vect(0, 0);
 	result->delta_dist = make_fvect(0, 0);
+	result->cur_floor = make_fvect(0, 0);
+	result->floor_wall = make_fvect(0, 0);
+	result->floor_tex = make_vect(0, 0);
 	result->time = 0;
 	result->time_tmp = 0;
 	return (result);

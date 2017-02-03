@@ -1,5 +1,15 @@
 #include "wolf.h"
 
+double get_wall_dist(t_env *env)
+{
+	if (env->wolf->side == 0)
+		return ((env->wolf->map_loc->x - env->wolf->ray_pos->x
+			+ (1 - env->wolf->step->x) / 2) / env->wolf->ray_dir->x);
+	else
+		return ((env->wolf->map_loc->y - env->wolf->ray_pos->y
+			+ (1 - env->wolf->step->y) / 2) / env->wolf->ray_dir->y);
+}
+
 void 	line_calc(t_env *env)
 {
 	env->wolf->perpWallDist = get_wall_dist(env);

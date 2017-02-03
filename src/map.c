@@ -1,5 +1,27 @@
 #include "wolf.h"
 
+// int		**read_map(v)
+// {
+// 	int	i;
+// 	int	j;
+// 	int **result;
+// 	char *buff;
+// 	char **split;
+// 	int fd;
+//
+// 	result = (int **)ft_memalloc(sizeof(int *) * 24);
+// 	fd = open ("maps/map1", O_RDONLY);
+// 	i = 0;
+// 	while (get_next_line(fd, &buff) == 1)
+// 	{
+// 		j = -1;
+// 		split = ft_strsplit(buff, ' ');
+// 		while (++j < 24)
+// 			int[i][j] = split[j];
+// 		i++;
+// 	}
+// }
+
 int		map_value(int x, int y)
 {
 	static int worldMap[24][24]= {

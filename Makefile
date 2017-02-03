@@ -3,7 +3,9 @@ NAME = Wolf3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -o2 -funroll-loops -march=native -lpthread
 
-SRC = src/main.c src/make_env.c src/pixel_to_img.c src/line.c src/make_wolf.c src/make_vect.c src/floor.c src/mouse_and_key.c src/map.c src/wolf.c src/rot.c src/draw_vert.c src/dda.c src/textures.c
+GNL = gnl/get_next_line.c -I gnl
+
+SRC = src/main.c src/make_env.c src/pixel_to_img.c src/line.c src/make_wolf.c src/make_vect.c src/floor.c src/mouse_and_key.c src/map.c src/wolf.c src/rot.c src/draw_vert.c src/dda.c src/textures.c src/draw_screen.c
 FRAMEWORKS = -framework OpenGL -framework Appkit
 
 INCLUDE = -I includes
@@ -25,7 +27,7 @@ mlx.a:
 	make -C mlx re
 
 $(NAME): libft.a mlx.a
-	$(CC) $(CFLAGS) $(MLX) $(LIBFT) $(INCLUDE) $(FRAMEWORKS) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLX) $(LIBFT) $(INCLUDE) $(FRAMEWORKS) $(SRC) $(GNL) -o $(NAME)
 
 clean:
 	make -C libft fclean

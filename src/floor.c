@@ -4,23 +4,23 @@ void 	floor_calc(t_env *env)
 {
 	if (env->wolf->side == 0 && env->wolf->ray_dir->x > 0)
 	{
-		env->wolf->floorXWall = env->wolf->map_loc->x;
-		env->wolf->floorYWall = env->wolf->map_loc->y + env->wolf->wall_x;
+		env->wolf->floor_wall->x = env->wolf->map_loc->x;
+		env->wolf->floor_wall->y = env->wolf->map_loc->y + env->wolf->wall_x;
 	}
 	else if (env->wolf->side == 0 && env->wolf->ray_dir->x < 0)
 	{
-		env->wolf->floorXWall = env->wolf->map_loc->x + 1.0;
-		env->wolf->floorYWall = env->wolf->map_loc->y + env->wolf->wall_x;
+		env->wolf->floor_wall->x = env->wolf->map_loc->x + 1.0;
+		env->wolf->floor_wall->y = env->wolf->map_loc->y + env->wolf->wall_x;
 	}
 	else if (env->wolf->side == 1 && env->wolf->ray_dir->y > 0)
 	{
-		env->wolf->floorXWall = env->wolf->map_loc->x + env->wolf->wall_x;
-		env->wolf->floorYWall = env->wolf->map_loc->y;
+		env->wolf->floor_wall->x = env->wolf->map_loc->x + env->wolf->wall_x;
+		env->wolf->floor_wall->y = env->wolf->map_loc->y;
 	}
 	else
 	{
-		env->wolf->floorXWall = env->wolf->map_loc->x + env->wolf->wall_x;
-		env->wolf->floorYWall = env->wolf->map_loc->y + 1.0;
+		env->wolf->floor_wall->x = env->wolf->map_loc->x + env->wolf->wall_x;
+		env->wolf->floor_wall->y = env->wolf->map_loc->y + 1.0;
 	}
 	env->wolf->distWall = env->wolf->perpWallDist;
 	env->wolf->distPlayer = 0.0;
@@ -38,18 +38,18 @@ void 	floor_cast(t_env *env)
 			/ (2.0 * env->wolf->y - env->height);
 		env->wolf->weight = (env->wolf->currentDist - env->wolf->distPlayer)
 			/ (env->wolf->distWall - env->wolf->distPlayer);
-		env->wolf->currentFloorX = env->wolf->weight * env->wolf->floorXWall
+		env->wolf->cur_floor->x = env->wolf->weight * env->wolf->floor_wall->x
 			+ (1.0 - env->wolf->weight) * env->wolf->pos->x;
-		env->wolf->currentFloorY = env->wolf->weight * env->wolf->floorYWall
+		env->wolf->cur_floor->y = env->wolf->weight * env->wolf->floor_wall->y
 			+ (1.0 - env->wolf->weight) * env->wolf->pos->y;
-		env->wolf->floorTexX = (int)(env->wolf->currentFloorX * 32) % 32;
-		env->wolf->floorTexY = (int)(env->wolf->currentFloorY * 32) % 32;
-		env->wolf->color = env->textures[4][32 * env->wolf->floorTexY
-			+ env->wolf->floorTexX] >> 1 & 8355711;
+		env->wolf->floor_tex->x = (int)(env->wolf->cur_floor->x * 32) % 32;
+		env->wolf->floor_tex->y = (int)(env->wolf->cur_floor->y * 32) % 32;
+		env->wolf->color = env->textures[4][32 * env->wolf->floor_tex->y
+			+ env->wolf->floor_tex->x] >> 1 & 8355711;
 		pixel_to_img(env->img_data, env->wolf->x,
 			env->height - env->wolf->y, env->wolf->color);
-		env->wolf->color = env->textures[3][32 * env->wolf->floorTexY
-		 	+ env->wolf->floorTexX];
+		env->wolf->color = env->textures[3][32 * env->wolf->floor_tex->y
+		 	+ env->wolf->floor_tex->x];
 		pixel_to_img(env->img_data, env->wolf->x, env->wolf->y,
 			env->wolf->color);
 	}

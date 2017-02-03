@@ -3,6 +3,9 @@
 
 #include "mlx.h"
 #include "libft.h"
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 #include <math.h>
 #include <pthread.h>
 
@@ -44,43 +47,40 @@ typedef struct	s_vect
 typedef struct	s_wolf
 {
 	int			x;
-	t_fvect		*pos;
-	t_fvect		*dir;
-	t_fvect		*plane;
-	double		cameraX;
-	t_fvect		*ray_pos;
-	t_fvect		*ray_dir;
-	t_vect		*map_loc;
-	t_fvect		*side_dist;
-	t_fvect		*delta_dist;
-	double		perpWallDist;
-	t_vect		*step;
+	int 		y;
 	int			hit;
 	int			side;
-	int			line_len; //height of line
+	int			line_len;
 	int			draw_start;
 	int			draw_end;
-	t_line		*line;
+	int 		tex_num;
+	int 		tex_x;
+	int			color;
+	double		cameraX;
+	double		perpWallDist;
 	double 		time_tmp;
 	double		time;
 	double		frame_time;
 	double		move_speed;
 	double		rot_speed;
-	int 		tex_num;
 	double 		wall_x;
-	int 		tex_x;
-	int 		y;
-	double		floorXWall;
-	double 		floorYWall;
 	double		distWall;
 	double		distPlayer;
 	double		currentDist;
 	double		weight;
-	double		currentFloorX;
-	double		currentFloorY;
-	int			floorTexX;
-	int			floorTexY;
-	int			color;
+	t_fvect		*pos;
+	t_fvect		*dir;
+	t_fvect		*plane;
+	t_vect		*step;
+	t_fvect		*ray_pos;
+	t_fvect		*ray_dir;
+	t_vect		*map_loc;
+	t_fvect		*side_dist;
+	t_fvect		*delta_dist;
+	t_fvect		*floor_wall;
+	t_fvect		*cur_floor;
+	t_vect		*floor_tex;
+	t_line		*line;
 }				t_wolf;
 
 typedef	struct	s_env
@@ -148,6 +148,7 @@ void 	texture_util(int **textures, int i, int j);
 int		**make_textures(void);
 void 	dda_util(t_env *env);
 void 	dda(t_env *env);
+void 	draw_img(t_env *env);
 
 
 #endif

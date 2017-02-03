@@ -1,5 +1,11 @@
 #include "wolf.h"
 
+void 	set_speeds(t_env *env)
+{
+	env->wolf->move_speed = env->wolf->frame_time * 6.0;
+	env->wolf->rot_speed = env->wolf->frame_time * 4.0;
+}
+
 void 	wolf_util(t_env *env)
 {
 	env->wolf->cameraX = 2 * env->wolf->x / (double)env->width - 1;
