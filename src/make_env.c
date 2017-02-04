@@ -13,6 +13,18 @@ t_img	*make_img(void *mlx, int x, int y)
 	return (result);
 }
 
+t_keys	*make_keys(void)
+{
+	t_keys	*result;
+
+	result = (t_keys *)ft_memalloc(sizeof(t_keys));
+	result->w = 0;
+	result->a = 0;
+	result->s = 0;
+	result->d = 0;
+	return (result);
+}
+
 t_env	*make_env(int x, int y)
 {
 	t_env *result;
@@ -29,5 +41,6 @@ t_env	*make_env(int x, int y)
 	result->last_x = 0;
 	result->last_y = 0;
 	result->textures = make_textures();
+	result->keys = make_keys();
 	return (result);
 }

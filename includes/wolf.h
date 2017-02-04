@@ -9,6 +9,14 @@
 #include <math.h>
 #include <pthread.h>
 
+typedef	struct	s_keys
+{
+	int			w;
+	int			a;
+	int			s;
+	int			d;
+}				t_keys;
+
 typedef struct	s_img
 {
 	void		*img;
@@ -57,16 +65,17 @@ typedef struct	s_wolf
 	int 		tex_x;
 	int			color;
 	double		cameraX;
-	double		perpWallDist;
+	//perpWallDist
+	double		wall_dist;
 	double 		time_tmp;
 	double		time;
 	double		frame_time;
 	double		move_speed;
 	double		rot_speed;
 	double 		wall_x;
-	double		distWall;
-	double		distPlayer;
-	double		currentDist;
+	double		dist_wall;
+	double		dist_player;
+	double		current_dist;
 	double		weight;
 	t_fvect		*pos;
 	t_fvect		*dir;
@@ -96,6 +105,7 @@ typedef	struct	s_env
 	int			**textures;
 	int			last_x;
 	int			last_y;
+	t_keys		*keys;
 }				t_env;
 
 typedef	struct	s_linevars
@@ -125,9 +135,6 @@ t_vect 	*make_vect(int x, int y);
 t_fvect 	*make_fvect(double x, double y);
 void 	floor_calc(t_env *env);
 void 	floor_cast(t_env *env);
-void 	move_camera(int keycode, t_env *env);
-void 	rotate_camera(int keycode, t_env *env);
-int 	wolf_keys(int keycode, t_env *env);
 int		wolf_mouse(int x, int y, t_env *env);
 int		map_value(int x, int y);
 void 	wolf_util(t_env *env);

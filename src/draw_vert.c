@@ -12,8 +12,8 @@ double get_wall_dist(t_env *env)
 
 void 	line_calc(t_env *env)
 {
-	env->wolf->perpWallDist = get_wall_dist(env);
-	env->wolf->line_len = (int)(env->height / env->wolf->perpWallDist);
+	env->wolf->wall_dist = get_wall_dist(env);
+	env->wolf->line_len = (int)(env->height / env->wolf->wall_dist);
 	env->wolf->draw_start = -env->wolf->line_len / 2 + env->height / 2;
 	if (env->wolf->draw_start < 0)
 		env->wolf->draw_start = 0;
@@ -26,10 +26,10 @@ void 	line_calc(t_env *env)
 		- 1;
 	if (env->wolf->side == 0)
 		env->wolf->wall_x = env->wolf->ray_pos->y
-			+ env->wolf->perpWallDist * env->wolf->ray_dir->y;
+			+ env->wolf->wall_dist * env->wolf->ray_dir->y;
 	else
 		env->wolf->wall_x = env->wolf->ray_pos->x
-			+ env->wolf->perpWallDist * env->wolf->ray_dir->x;
+			+ env->wolf->wall_dist * env->wolf->ray_dir->x;
 	env->wolf->wall_x -= floor(env->wolf->wall_x);
 	env->wolf->tex_x = (int)(env->wolf->wall_x * 32.0);
 	if (env->wolf->side == 0 && env->wolf->ray_dir->x > 0)

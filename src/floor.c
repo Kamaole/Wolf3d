@@ -22,8 +22,8 @@ void 	floor_calc(t_env *env)
 		env->wolf->floor_wall->x = env->wolf->map_loc->x + env->wolf->wall_x;
 		env->wolf->floor_wall->y = env->wolf->map_loc->y + 1.0;
 	}
-	env->wolf->distWall = env->wolf->perpWallDist;
-	env->wolf->distPlayer = 0.0;
+	env->wolf->dist_wall = env->wolf->wall_dist;
+	env->wolf->dist_player = 0.0;
 	if (env->wolf->draw_end < 0)
 		env->wolf->draw_end = env->height;
 	env->wolf->y = env->wolf->draw_end;
@@ -34,10 +34,10 @@ void 	floor_cast(t_env *env)
 	floor_calc(env);
 	while (++env->wolf->y < env->height)
 	{
-		env->wolf->currentDist = env->height
+		env->wolf->current_dist = env->height
 			/ (2.0 * env->wolf->y - env->height);
-		env->wolf->weight = (env->wolf->currentDist - env->wolf->distPlayer)
-			/ (env->wolf->distWall - env->wolf->distPlayer);
+		env->wolf->weight = (env->wolf->current_dist - env->wolf->dist_player)
+			/ (env->wolf->dist_wall - env->wolf->dist_player);
 		env->wolf->cur_floor->x = env->wolf->weight * env->wolf->floor_wall->x
 			+ (1.0 - env->wolf->weight) * env->wolf->pos->x;
 		env->wolf->cur_floor->y = env->wolf->weight * env->wolf->floor_wall->y
