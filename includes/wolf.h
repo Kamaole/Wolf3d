@@ -6,7 +6,7 @@
 /*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:02:12 by rmatos            #+#    #+#             */
-/*   Updated: 2017/02/06 14:07:50 by rmatos           ###   ########.fr       */
+/*   Updated: 2017/02/06 15:02:20 by rmatos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef	struct	s_env
 	int			half_height;
 	int			half_width;
 	int			**textures;
+	int			**map;
 	int			last_x;
 	int			last_y;
 	t_keys		*keys;
@@ -145,7 +146,6 @@ t_dvect			*make_dvect(double x, double y);
 void			floor_calc(t_env *env);
 void			floor_cast(t_env *env);
 int				wolf_mouse(int x, int y, t_env *env);
-int				map_value(int x, int y);
 void			wolf_util(t_env *env);
 void			wolf(t_env *env);
 void			dda_util(t_env *env);
@@ -167,5 +167,6 @@ void			dda(t_env *env);
 void			draw_img(t_env *env);
 int				key_pressed(int keycode, t_env *env);
 int				key_released(int keycode, t_env *env);
+int				**read_map(int fd);
 
 #endif

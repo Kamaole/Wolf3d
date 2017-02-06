@@ -6,7 +6,7 @@
 /*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:19:24 by rmatos            #+#    #+#             */
-/*   Updated: 2017/02/06 14:19:31 by rmatos           ###   ########.fr       */
+/*   Updated: 2017/02/06 15:00:05 by rmatos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ t_env	*make_env(int x, int y)
 	result->last_x = 0;
 	result->textures = make_textures();
 	result->keys = make_keys();
+	result->map = read_map(open("map1", O_RDWR));
 	return (result);
 }

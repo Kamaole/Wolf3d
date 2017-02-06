@@ -6,7 +6,7 @@
 /*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:24:55 by rmatos            #+#    #+#             */
-/*   Updated: 2017/02/06 14:25:29 by rmatos           ###   ########.fr       */
+/*   Updated: 2017/02/06 15:04:45 by rmatos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@ void	move_camera(t_env *env)
 {
 	if (env->keys->w)
 	{
-		printf("hi");
-		if (!map_value((int)(env->wolf->pos->x + env->wolf->dir->x
-			* env->wolf->move_speed), (int)(env->wolf->pos->y)))
+		if (!env->map[(int)(env->wolf->pos->x + env->wolf->dir->x
+			* env->wolf->move_speed)][(int)(env->wolf->pos->y)])
 			env->wolf->pos->x += env->wolf->dir->x * env->wolf->move_speed;
-		if (!map_value((int)(env->wolf->pos->x), (int)(env->wolf->pos->y
-			+ env->wolf->dir->y * env->wolf->move_speed)))
+		if (!env->map[(int)(env->wolf->pos->x)][(int)(env->wolf->pos->y
+			+ env->wolf->dir->y * env->wolf->move_speed)])
 			env->wolf->pos->y += env->wolf->dir->y * env->wolf->move_speed;
 	}
 	if (env->keys->s)
 	{
-		if (!map_value((int)(env->wolf->pos->x - env->wolf->dir->x
-			* env->wolf->move_speed), (int)(env->wolf->pos->y)))
+		if (!env->map[(int)(env->wolf->pos->x - env->wolf->dir->x
+			* env->wolf->move_speed)][(int)(env->wolf->pos->y)])
 			env->wolf->pos->x -= env->wolf->dir->x * env->wolf->move_speed;
-		if (!map_value((int)(env->wolf->pos->x), (int)(env->wolf->pos->y
-			- env->wolf->dir->y * env->wolf->move_speed)))
+		if (!env->map[(int)(env->wolf->pos->x)][(int)(env->wolf->pos->y
+			- env->wolf->dir->y * env->wolf->move_speed)])
 			env->wolf->pos->y -= env->wolf->dir->y * env->wolf->move_speed;
 	}
 }

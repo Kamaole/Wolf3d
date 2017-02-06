@@ -6,7 +6,7 @@
 /*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:12:18 by rmatos            #+#    #+#             */
-/*   Updated: 2017/02/06 14:12:36 by rmatos           ###   ########.fr       */
+/*   Updated: 2017/02/06 15:05:21 by rmatos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	dda(t_env *env)
 			env->wolf->map_loc->y += env->wolf->step->y;
 			env->wolf->side = 1;
 		}
-		if (map_value(env->wolf->map_loc->x, env->wolf->map_loc->y) > 0)
+		if (env->map[env->wolf->map_loc->x][env->wolf->map_loc->y] > 0)
 			env->wolf->hit = 1;
 	}
 }
