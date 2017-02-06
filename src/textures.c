@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   textures.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/06 14:23:46 by rmatos            #+#    #+#             */
+/*   Updated: 2017/02/06 14:24:12 by rmatos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
-void 	texture_util(int **textures, int i, int j)
+void	texture_util(int **textures, int i, int j)
 {
 	int xorcolor;
 	int ycolor;

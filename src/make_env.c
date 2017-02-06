@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_env.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/06 14:19:24 by rmatos            #+#    #+#             */
+/*   Updated: 2017/02/06 14:19:31 by rmatos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
 t_img	*make_img(void *mlx, int x, int y)
@@ -39,7 +51,6 @@ t_env	*make_env(int x, int y)
 	result->half_height = y / 2;
 	result->wolf = make_wolf();
 	result->last_x = 0;
-	result->last_y = 0;
 	result->textures = make_textures();
 	result->keys = make_keys();
 	return (result);

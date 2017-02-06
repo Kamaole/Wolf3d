@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   floor.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/06 14:15:21 by rmatos            #+#    #+#             */
+/*   Updated: 2017/02/06 14:15:59 by rmatos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
-void 	floor_calc(t_env *env)
+void	floor_calc(t_env *env)
 {
 	if (env->wolf->side == 0 && env->wolf->ray_dir->x > 0)
 	{
@@ -29,7 +41,7 @@ void 	floor_calc(t_env *env)
 	env->wolf->y = env->wolf->draw_end;
 }
 
-void 	floor_cast(t_env *env)
+void	floor_cast(t_env *env)
 {
 	floor_calc(env);
 	while (++env->wolf->y < env->height)
@@ -49,7 +61,7 @@ void 	floor_cast(t_env *env)
 		pixel_to_img(env->img_data, env->wolf->x,
 			env->height - env->wolf->y, env->wolf->color);
 		env->wolf->color = env->textures[3][32 * env->wolf->floor_tex->y
-		 	+ env->wolf->floor_tex->x];
+			+ env->wolf->floor_tex->x];
 		pixel_to_img(env->img_data, env->wolf->x, env->wolf->y,
 			env->wolf->color);
 	}

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dda.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmatos <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/06 14:12:18 by rmatos            #+#    #+#             */
+/*   Updated: 2017/02/06 14:12:36 by rmatos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf.h"
 
-void 	dda_util(t_env *env)
+void	dda_util(t_env *env)
 {
 	if (env->wolf->ray_dir->x < 0)
 	{
@@ -28,7 +40,7 @@ void 	dda_util(t_env *env)
 	}
 }
 
-void 	dda(t_env *env)
+void	dda(t_env *env)
 {
 	dda_util(env);
 	while (env->wolf->hit == 0)

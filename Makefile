@@ -1,4 +1,4 @@
-NAME = Wolf3d
+NAME = wolf3d
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -o2 -funroll-loops -march=native -lpthread
